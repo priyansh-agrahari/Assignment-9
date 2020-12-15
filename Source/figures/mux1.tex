@@ -1,0 +1,35 @@
+\begin{circuitikz}
+    \ctikzset{tripoles/american nand port/height=1.5};
+    \draw
+    (0,0)node[nand port,number inputs=3](i3){}
+    (0,2.5)node[nand port,number inputs=3](i2){}
+    (0,5)node[nand port,number inputs=3](i1){}
+    (0,7.5)node[nand port,number inputs=3](i0){}
+    ;
+    \ctikzset{tripoles/american nand port/height=2};
+    \draw(3,3.8)node[nand port,number inputs=4](out){};
+    \draw
+    (i0.in 1)node[anchor=east]{$I_0$}
+    (i0.in 2)node[anchor=east]{$U$}
+    (i0.in 3)node[anchor=east]{$V$}
+    (i1.in 1)node[anchor=east]{$I_1$}
+    (i1.in 2)node[anchor=east]{$U$}
+    (i1.in 3)node[anchor=east]{$V$}
+    (i2.in 1)node[anchor=east]{$I_2$}
+    (i2.in 2)node[anchor=east]{$U$}
+    (i2.in 3)node[anchor=east]{$V$}
+    (i3.in 1)node[anchor=east]{$I_3$}
+    (i3.in 2)node[anchor=east]{$U$}
+    (i3.in 3)node[anchor=east]{$V$}
+    (out.out)node[anchor=west]{$Output$}
+    
+    (i0.out)--(out.in 1)
+    (i1.out)--(out.in 2)
+    (i2.out)--(out.in 3)
+    (i3.out)--(out.in 4)
+    ;
+    \node at (i0.bin 2)[ocirc,left]{};
+    \node at (i0.bin 3)[ocirc,left]{};
+    \node at (i1.bin 2)[ocirc,left]{};
+    \node at (i2.bin 3)[ocirc,left]{};
+\end{circuitikz} 
