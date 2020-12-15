@@ -1,0 +1,13 @@
+\begin{karnaugh-map}[4][4][1][][]
+    \maxterms{0,3,4,7,8,9,10,11,12,13,14,15}
+    \minterms{1,5,2,6}
+    
+    \implicant{0}{8}
+    \implicant{3}{11}
+    \implicant{12}{10}
+
+    \draw[color=black, ultra thin] (0, 4) --
+    node [pos=0.7, above right, anchor=south west] {$UV$}
+    node [pos=0.7, below left, anchor=north east] {$WX$}
+    ++(135:1);
+\end{karnaugh-map}
