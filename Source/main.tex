@@ -44,14 +44,12 @@
 
 \textbf{A four-variable Boolean function is realized using 4x1 multiplexers as shown in the figure:}
 
-\vspace{1cm}
-
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{images/MUX_fig.png}
+\includegraphics[scale=0.3]{images/mux_fig.png}
+\caption{Question figure}
+\label{mux_fig}
 \end{figure}
-
-\vspace{1cm}
 
 \textbf{The minimized expression for F(U,V,W,X) is}
 
@@ -62,16 +60,13 @@
 \item ($U$ $\overline{V}$ + $\overline{U}$ $V$) ($\overline{W}$ $\overline{X}$ + $\overline{W}$ $X$)
 \end{enumerate}
 
-\pagebreak{}
-
 \section{Solution:}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
-%\hspace{5cm}
-\resizebox{\columnwidth}{!} {
+%\resizebox{\columnwidth}{!} {
 \input{figures/mux1.tex}
-}
+%}
 \caption{$Logic$ $circuit$ $equivalent$ $of$ 4x1 $MUX$ $used$ $to$ $solve$ $this$ $problem$}
 \label{mux1}
 \end{figure}
@@ -87,8 +82,6 @@ which can be further simplified (using de Morgan's law) to obtain:
 \begin{equation}
     Output = U \overline{V} + \overline{U} V
 \end{equation}
-
-\hspace{0.5cm}
 
 Moving further, the same logic can be used to obtain the result of the second MUX. Since in this case, $I_2$ and $I_3$ are grounded; hence by taking their boolean equivalents to be 0, we get the following equation from the second MUX:
 
@@ -108,8 +101,6 @@ after placing the value of $Output$ from eq.(2), and performing a few more manip
     F = (U\overline{V}+\overline{U}V)\overline{W}(X+\overline{X})
 \end{equation}
 
-\hspace{0.5cm}
-
 Since $X$+$\overline{X}$=1, we finally get the desired equation:
 
 \begin{equation}
@@ -118,35 +109,33 @@ Since $X$+$\overline{X}$=1, we finally get the desired equation:
 
 Hence, the answer the given question is (C).
 
-\vspace{5cm}
-\pagebreak{}
-
 \section{Truth Table}
-\begin{table}[!ht]
+\begin{table}[!h]
 \centering
-\resizebox{\columnwidth}{!} {
+\scalebox{1.6}{
+%\resizebox{\columnwidth}{!} {
 \input{tables/table1.tex}
 }
 \caption{Truth Table for eq.(6)}
 \label{table1}
 \end{table}
 
-\pagebreak{}
-
 \section{K-map for the function F(U,V,W,X)}
 \hspace{2cm}
 \begin{figure}[h]
 \centering
 \input{figures/kmap_SOP.tex}
+\caption{K-map for SOP expression}
+\label{kmap_SOP}
 \end{figure}
 
 The expression obtained using the K-map is the same as the one obtained earlier in eq.(6). Alternatively, we can also make a K-map for obtaining the POS expression:
 
-\hspace{2cm}
-
 \begin{figure}[h]
 \centering
 \input{figures/kmap_POS.tex}
+\caption{K-map for POS expression}
+\label{kmap_POS}
 \end{figure}
 
 The POS expression hence obtained is:
@@ -154,8 +143,6 @@ The POS expression hence obtained is:
 \begin{equation}
     F = (U+V)(\overline{U}+\overline{V})\overline{W}
 \end{equation}
-
-\pagebreak{}
 
 \section{C implementation to verify Table 1}
 \subsection{C code:}
