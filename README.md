@@ -4,3 +4,6 @@
 #### assignments added:
 - assignment 9 - 15th dec 2020<br>
   completed on - 23rd dec 2020
+- assignment 10 - 3rd jan 2021<br>
+  pending completion 
+  
