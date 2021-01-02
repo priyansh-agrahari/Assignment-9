@@ -1,0 +1,80 @@
+\documentclass[table,xcdraw]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{float}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning,shapes.gates.logic.US}
+%\usepackage[table,xcdraw]{xcolor}
+
+\title{Digital Logic Design Assignment 10 - EC2016-17}
+\author{Priyansh Agrahari}
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+Assume that all the digital gates in the circuit shown in the figure are ideal, the resistor \textit{R} = 10 \textit{k}$\Omega$ and the supply voltage is 5 \textit{V}. The D flip-flops D$_1$, D$_2$, D$_3$, D$_4$ and D$_5$ are initialized with logic values 0, 1, 0, 1 and 0, respectively. The clock has a 30\% duty cycle.
+
+\begin{figure}[h]
+    \centering
+    \scalebox{0.65}{
+    \input{figs/ques.tex} }
+    \caption{\textit{Question figure}}
+    \label{fig:ques}
+\end{figure}
+
+The average power dissipated (in mW) in the resistor \textit{R} is $\_\_\_\_\_\_\_\_\_\_$
+\vfill
+
+\section{Solution}
+Let the output waveform be represented by $Y$. Then, we can infer from the question figure that
+\begin{equation}
+    Y=Q_3+Q_5
+\end{equation}
+
+\subsection{Truth Table}
+\begin{table}[H]
+    \centering
+    \input{tables/table1.tex}
+    \caption{\textit{Truth Table for the Circuit Diagram given in the Question Figure}}
+    \label{tab:table}
+\end{table}
+Now, using the truth table, we can make the timing diagram as given below.
+
+\subsection{Timing Diagram}
+\begin{figure}[h]
+    \centering
+    \resizebox{\columnwidth}{!} {
+    \includegraphics{figs/graph.pdf} }
+    \caption{\textit{Timing Diagram for the Circuit Diagram given in the Question Figure}}
+    \label{fig:graph}
+\end{figure}
+
+Here, the time 0 to 5 represents one time period T of the clock. 
+From the timing diagram, we can see that out of the total time, the time for which the voltage across the resistor is non-zero for three division out of five.\par
+We can thus calculate the average power using:
+
+\begin{equation}
+    Average\:power\:dissipated = P_{avg}=\frac{1}{T}\int_{0}^{T} VI \,dt
+\end{equation}
+writing $I$ in terms of $V$ (5$V$) and $R$ (10$k\Omega$), we get:
+\begin{equation}
+    P_{avg}=\frac{1}{T}\frac{V^2}{R}\int_{0}^{T}\,dt
+\end{equation}
+placing the value of integral, we get:
+\begin{equation}
+    P_{avg}=\frac{1}{T}\frac{V^2}{R}\frac{3T}{5}
+\end{equation}
+finally, placing the values of $V$ and $R$, we get:
+\begin{equation}
+    P_{avg}=\frac{3}{5}\frac{5^2}{10000}
+\end{equation}
+\begin{equation}
+    P_{avg}=1.5
+\end{equation}
+\vfill
+\hrule
+
+\end{document}
