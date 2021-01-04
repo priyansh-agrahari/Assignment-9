@@ -1,0 +1,137 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage[export]{adjustbox}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning,shapes.gates.logic.US}
+
+\colorlet{beamer@blendedblue}{blue!60!black}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{img/assn11_bg.png}}
+
+
+\title{Assignment 11}
+\subtitle{Solution to GATE EC2016, question 17}
+\author{Priyansh Agrahari}
+\institute{IIIT Raichur}
+\date{\today}
+\logo{\includegraphics[height=1cm]{img/logo-blue-desktop.png}}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+    Assume that all the digital gates in the circuit shown in the figure are ideal, the resistor \textit{R} = 10 \textit{k}$\Omega$ and the supply voltage is 5 \textit{V}. The D flip-flops D$_1$, D$_2$, D$_3$, D$_4$ and D$_5$ are initialized with logic values 0, 1, 0, 1 and 0, respectively. The clock has a 30\% duty cycle.
+
+\begin{figure}[h]
+    \centering
+    \scalebox{0.6}{
+    \input{figs/ques.tex} }
+    \caption{\textit{Question figure}}
+    \label{fig:ques}
+\end{figure}
+
+The average power dissipated (in mW) in the resistor \textit{R} is $\_\_\_\_\_\_\_\_\_\_$
+\end{frame}
+
+\section{Solution}
+
+\subsection{Pretext}
+\begin{frame}{Solution / Pretext}
+\begin{figure}[h]
+    \centering
+    \scalebox{0.6}{
+    \input{figs/ques_.tex} }
+    %\caption{\textit{Question figure}}
+    \label{fig:ques_}
+\end{figure}
+    Let the output waveform be represented by $Y$. Then, we can infer from the question figure that
+\begin{equation}
+    Y=Q_3+Q_5
+\end{equation}
+    We can also infer that the given Flip-Flops are negative edge triggered since they have a bubble (can be seen as a triangle) on the clock input.
+\end{frame}
+
+\subsection{Truth Table}
+\begin{frame}{Solution / Truth Table}
+    \begin{table}[H]
+    \centering
+    %\resizebox{\columnwidth}{!}{
+    \input{tables/table1.tex} %}
+    \caption{\textit{Truth Table for the Circuit Diagram given in the Question Figure}}
+    \label{tab:table}
+\end{table}
+Now, using the truth table, we can make the timing diagram as given on the next slide.
+\end{frame}
+
+\subsection{Timing Diagram}
+\begin{frame}{Solution / Timing Diagram}
+\begin{columns}
+\column{0.5\textwidth}
+\vspace{-0.45cm} % "\vspace" used to align picture vertically, preventing overflow
+    \begin{figure}[h]
+    \centering
+    \scalebox{0.35} {\includegraphics[frame]{img/rsz_graph.png}} 
+    %\caption{\textit{Timing Diagram for the Circuit Diagram given in the Question Figure}}
+    \label{fig:graph}
+\end{figure}
+\column{0.5\textwidth}
+Here, the time 0 to 5 represents five time periods of the clock. 
+Since the given Flip-Flops are negative edge triggered, each of them changes their value when the output of the clock falls to 0.\par
+From the timing diagram for $Y$, we can see that out the output voltage is non-zero for 3 time periods.
+\end{columns}
+\end{frame}
+
+\subsection{Calculation}
+\begin{frame}{Solution / Calculation}
+    We can thus calculate the average power over time using the general formula:
+\begin{equation}
+    Average\:power\:dissipated = P_{avg}=\frac{1}{T}\int_{0}^{T} VI \,dt
+\end{equation}
+    In the current context, we are calculating the average over 5 time periods. Hence, the equation now becomes:
+\begin{equation} 
+    P_{avg}=\frac{1}{5T}\int_{0}^{5T} VI \,dt
+\end{equation}
+    writing $I$ in terms of $V$ (5$V$) and $R$ (10$k\Omega$), we get:
+\begin{equation}
+    P_{avg}=\frac{1}{5T}\frac{V^2}{R}\int_{0}^{5T}\,dt
+\end{equation}
+\end{frame}
+
+\begin{frame}{Solution / Calculation}
+placing the value of integral, we get:
+\begin{equation}
+    P_{avg}=\frac{1}{5T}\frac{V^2}{R}3T
+\end{equation}
+finally, placing the values of $V$ and $R$, we get:
+\begin{equation}
+    P_{avg}=\frac{3}{5}\frac{5^2}{10000}
+\end{equation}
+\begin{equation}
+\boxed{
+    P_{avg}=1.5\;mW }
+\end{equation}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \textit{Thank you.}
+\end{frame}
+
+\end{document}
